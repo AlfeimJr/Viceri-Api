@@ -8,7 +8,7 @@ const eventRoutes = require("./routes/event.route");
 const app = express();
 app.use(express.json());
 app.use(cors());
-// Rotas
+
 app.use("/people", peopleRoutes);
 app.use("/auth", authRoutes);
 app.use("/form-fields", formFieldsRoutes);

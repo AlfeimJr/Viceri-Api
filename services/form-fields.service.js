@@ -1,4 +1,3 @@
-// Campos de formulário estáticos
 const getFormFields = (req, res) => {
   const formFields = [
     {

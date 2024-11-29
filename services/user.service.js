@@ -1,8 +1,7 @@
 const { usuarios } = require("../utils/users");
 
-const register =
-  ("/register",
-  (req, res) => {
+const register = (req, res) => {
+  try {
     console.log("Requisição recebida no /register:", req.body);
 
     const { email, senha, captcha, captchaResposta } = req.body;
@@ -42,11 +41,17 @@ const register =
       message: "Usuário registrado com sucesso!",
       usuario: novoUsuario,
     });
-  });
+  } catch (error) {
+    console.error("Erro ao registrar usuário:", error.message);
+    res.status(500).json({
+      code: "ERRO_INTERNO",
+      message: "Erro interno no servidor.",
+    });
+  }
+};
 
-const getUserByEmail =
-  ("/usuario/:email",
-  (req, res) => {
+const getUserByEmail = (req, res) => {
+  try {
     console.log("Requisição recebida no /usuario:", req.params.email);
 
     const { email } = req.params;
@@ -72,11 +77,17 @@ const getUserByEmail =
       message: "Usuário encontrado com sucesso.",
       usuario,
     });
-  });
+  } catch (error) {
+    console.error("Erro ao buscar usuário por e-mail:", error.message);
+    res.status(500).json({
+      code: "ERRO_INTERNO",
+      message: "Erro interno no servidor.",
+    });
+  }
+};
 
-const resetPassword =
-  ("/usuario/redefinir-senha",
-  (req, res) => {
+const resetPassword = (req, res) => {
+  try {
     console.log("Requisição recebida no /usuario/redefinir-senha:", req.body);
 
     const { email } = req.body;
@@ -114,6 +125,13 @@ const resetPassword =
       message: "Senha redefinida com sucesso.",
       novaSenha,
     });
-  });
+  } catch (error) {
+    console.error("Erro ao redefinir senha:", error.message);
+    res.status(500).json({
+      code: "ERRO_INTERNO",
+      message: "Erro interno no servidor.",
+    });
+  }
+};
 
 module.exports = { register, getUserByEmail, resetPassword };
