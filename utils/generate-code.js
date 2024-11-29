@@ -1,0 +1,6 @@
+// Gera um código de 6 dígitos aleatórios
+const generateCode = () => {
+  return Math.floor(100000 + Math.random() * 900000).toString(); // Retorna como string
+};
+
+module.exports = { generateCode };
