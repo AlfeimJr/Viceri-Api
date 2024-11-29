@@ -1,6 +1,7 @@
 const app = require("./app");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // Render fornece a porta via process.env.PORT
+
 app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://api.sigae.com:${PORT}`);
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
