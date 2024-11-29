@@ -71,7 +71,7 @@ const generateAuthCode = (req, res) => {
     console.log(`Código de autenticação gerado para ${email}: ${code}`);
     res
       .status(200)
-      .json({ message: "Código de autenticação gerado com sucesso." });
+      .json({ message: `Código de autenticação gerado com sucesso: ${code}` });
   } catch (error) {
     console.error("Erro ao gerar código de autenticação:", error.message);
     res
