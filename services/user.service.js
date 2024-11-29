@@ -1,4 +1,4 @@
-const { usuarios } = require("../src/utils/users");
+const { usuarios } = require("../utils/users");
 
 const register = (req, res) => {
   try {
