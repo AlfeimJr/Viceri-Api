@@ -27,7 +27,8 @@ Certifique-se de ter instalado:
 Para executar a API localmente:
 
 ```bash
-npm run start
+node server.js
+
 
 
 
